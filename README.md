@@ -131,31 +131,7 @@
 <span class="pl-s1">tokenizer</span> <span class="pl-c1">=</span> <span class="pl-v">AutoTokenizer</span>.<span class="pl-en">from_pretrained</span>(<span class="pl-s">'bert-base-cased'</span>)
 
 <span class="pl-s1">tokenized_dataset</span> <span class="pl-c1">=</span> <span class="pl-s1">squad_dataset</span>.<span class="pl-en">map</span>(<span class="pl-k">lambda</span> <span class="pl-s1">x</span>: <span class="pl-en">tokenizer</span>(<span class="pl-s1">x</span>[<span class="pl-s">'context'</span>]), <span class="pl-s1">batched</span><span class="pl-c1">=</span><span class="pl-c1">True</span>)</pre><div class="zeroclipboard-container">
-    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="from datasets import load_dataset
-
-# Print all the available datasets
-from huggingface_hub import list_datasets
-print([dataset.id for dataset in list_datasets()])
-
-# Load a dataset and print the first example in the training set
-squad_dataset = load_dataset('squad')
-print(squad_dataset['train'][0])
-
-# Process the dataset - add a column with the length of the context texts
-dataset_with_length = squad_dataset.map(lambda x: {&quot;length&quot;: len(x[&quot;context&quot;])})
-
-# Process the dataset - tokenize the context texts (using a tokenizer from the 🤗 Transformers library)
-from transformers import AutoTokenizer
-tokenizer = AutoTokenizer.from_pretrained('bert-base-cased')
-
-tokenized_dataset = squad_dataset.map(lambda x: tokenizer(x['context']), batched=True)" tabindex="0" role="button">
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
-    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
-</svg>
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
-    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
-</svg>
-    </clipboard-copy>
+     
   </div></div>
 <p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您的数据集比磁盘大或者您不想等待下载数据，则可以使用流式传输：</font></font></p>
 <div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-c"># If you want to use the dataset immediately and efficiently stream the data as you iterate over the dataset</span>
